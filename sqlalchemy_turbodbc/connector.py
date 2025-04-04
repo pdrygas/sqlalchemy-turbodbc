@@ -33,7 +33,7 @@ class _TurboDecimal(sqltypes.DECIMAL):
                     return value
                 else:
                     # handles scentific notation Decimals
-                    return "{:f}".format(value)
+                    return "{:.{}f}".format(value, self._effective_decimal_return_scale)
 
             return to_str
         else:
